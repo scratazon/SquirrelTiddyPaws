@@ -35,30 +35,23 @@ namespace SquirrelTiddyPaws
             var boobResult = await client.GetStringAsync(boobUrl);
             JsonDocument boobJson = JsonDocument.Parse(boobResult);
             JsonElement boobRoot = boobJson.RootElement.GetProperty("posts");
-            //dynamic tiddyStrings = JsonConvert.DeserializeObject(boobRoot.ToString());
-            JArray tiddyStrings = (JArray)JsonConvert.DeserializeObject(boobRoot.ToString());
-            Console.WriteLine(tiddyStrings.Count);
+            dynamic tiddyStrings = JsonConvert.DeserializeObject(boobRoot.ToString());
+            List<string> boobList = new List<string>();
+            int count = 0;
             foreach (var item in tiddyStrings)
             {
-                // nipples
+                string tmp = item.file.url;
+                boobList.Add(tmp);
+                count++;
             }
-            //List<string> boobList = new List<string>();
-            //int count = 0;
-            //foreach (var item in tiddyStrings)
-            //{
-            //    Console.WriteLine(tiddyStrings.Length);
-            //    string tmp = item.file.url;
-            //    boobList.Add(tmp);
-            //    count++;
-            //}
-            //var boobArray = new string[count];
-            //int i = 0;
-            //foreach (var item in boobList)
-            //{
-            //    boobArray[i] = item;
-            //    i++;
-            //}
-            //Console.WriteLine(boobArray[rand.Next(0,boobArray.Length)]);
+            var boobArray = new string[count];
+            int i = 0;
+            foreach (var item in boobList)
+            {
+                boobArray[i] = item;
+                i++;
+            }
+            Console.WriteLine(boobArray[rand.Next(0,boobArray.Length)]);
             Console.WriteLine("DONE");
         }
     }
