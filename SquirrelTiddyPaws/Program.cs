@@ -37,21 +37,13 @@ namespace SquirrelTiddyPaws
             JsonElement boobRoot = boobJson.RootElement.GetProperty("posts");
             dynamic tiddyStrings = JsonConvert.DeserializeObject(boobRoot.ToString());
             List<string> boobList = new List<string>();
-            int count = 0;
             foreach (var item in tiddyStrings)
             {
-                string tmp = item.file.url;
-                boobList.Add(tmp);
-                count++;
+                //string tmp = item.file.url;
+                boobList.Add(item.file.url);
             }
-            var boobArray = new string[count];
-            int i = 0;
-            foreach (var item in boobList)
-            {
-                boobArray[i] = item;
-                i++;
-            }
-            Console.WriteLine(boobArray[rand.Next(0,boobArray.Length)]);
+	    foreach (var item in boobList)
+		    Console.WriteLine(item);
             Console.WriteLine("DONE");
         }
     }
