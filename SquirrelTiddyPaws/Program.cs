@@ -39,12 +39,14 @@ namespace SquirrelTiddyPaws
             List<string> boobList = new List<string>();
             foreach (var item in tiddyStrings)
             {
-                //string tmp = item.file.url;
-                boobList.Add(item.file.url);
+                if ((string)item.file.url == "" || (string)item.file.url == null)
+                    continue;
+                boobList.Add((string)item.file.url);
             }
 	    foreach (var item in boobList)
-		    Console.WriteLine(boobList.Count, item);
+            Console.WriteLine(item);
 
+		    Console.WriteLine(boobList.Count);
             Console.WriteLine("DONE");
         }
     }
