@@ -43,11 +43,11 @@ namespace SquirrelTiddyPaws
                     continue;
                 boobList.Add((string)item.file.url);
             }
-	    foreach (var item in boobList)
-            Console.WriteLine(item);
+	        foreach (var item in boobList)
+                Console.WriteLine(item);
 
-		    Console.WriteLine(boobList.Count);
-            Console.WriteLine("DONE");
-        }
+		        Console.WriteLine(boobList.Count);
+                Console.WriteLine("DONE");
+            }
     }
 }
